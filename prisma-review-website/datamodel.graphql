@@ -1,0 +1,29 @@
+type User {
+  id: ID! @unique
+  name: String!
+  reviews: [Review!]! @relation(name: "ReviewToUser", onDelete: CASCADE)
+}
+
+type Book {
+  id: ID! @unique
+  title: String!
+  author: String!
+  isbn: String! @unique
+  review: [Review!]! @relation(name: "ReviewToBook", onDelete: CASCADE)
+}
+
+type Review {
+  id: ID! @unique
+  text: String!
+  rating: Rate!
+  user: User! @relation(name: "ReviewToUser", onDelete: SET_NULL)
+  book: Book! @relation(name: "ReviewToBook", onDelete: SET_NULL)
+}
+
+enum Rate {
+  WORST
+  WORSE
+  NORM
+  BETTER
+  BEST
+}

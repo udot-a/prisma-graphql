@@ -1,0 +1,7 @@
+#endpoint: ${env:PRISMA_ENDPOINT}
+endpoint: https://dron-prisma-server-2f1f71612f.herokuapp.com/prod/prod
+datamodel: datamodel.graphql
+secret: superpupersecrettool
+generate:
+  - generator: graphql-schema
+    output: ../src/generated/prisma.graphql

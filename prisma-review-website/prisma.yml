@@ -1,0 +1,8 @@
+endpoint: http://192.168.99.100:4466/reviews/default
+datamodel: datamodel.graphql
+generate:
+  - generator: graphql-schema
+    output: ../src/generated/prisma.graphql
+hooks:
+  post-deploy:
+    - prisma generate
